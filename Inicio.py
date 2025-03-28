@@ -13,6 +13,9 @@ class inicio:
         self.root=root
         self.root.title("Bienvenido")
         
+        self.nombre=tk.Label(root,text="Nava Sosa Francisco David")
+        self.nombre.pack()
+        
         self.usuario_label=tk.Label(root,text="Usuario")
         self.usuario_label.pack()
         self.usuario_entry=tk.Entry(root)
