@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 import pandas as pd
+import subprocess
 pd.__version__
 
 df_archivo_3=pd.read_csv("csv_camaras_2.csv")
@@ -38,11 +39,18 @@ class consulta10:
         
         self.consulta10()
         
+        self.regresar=tk.Button(root, text="Regresar", command=self.regreso)
+        self.regresar.pack()
+        
     #Consulta 9 (funcion)    
     def consulta10(self):
         c1=df_archivo_3.query("`Weight (inc. batteries)`>=@self.peso1 and `Weight (inc. batteries)`<=@self.peso2 and `Dimensions`>=@self.dimensiones")
         for index, row in c1.iterrows():
             self.tree.insert("", "end", values=(row["Model"], row["Zoom tele (T)"], row["Normal focus range"], row["Macro focus range"], row["Storage included"], row["Weight (inc. batteries)"], row["Dimensions"], row["Price"]))
+    
+    def regreso(self):
+        self.root.destroy()
+        subprocess.Popen(["python", "Menu.py"])
                     
 if __name__=="__main__":
     root=tk.Tk()

@@ -37,7 +37,7 @@ class inicio:
             
     def consultas(self):
         self.root.destroy()
-        subprocess.Popen(["python", "Consultas.py"])
+        subprocess.Popen(["python", "Menu.py"])
         
 
 if __name__=="__main__":
